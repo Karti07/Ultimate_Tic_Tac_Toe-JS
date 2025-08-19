@@ -1,0 +1,446 @@
+/* Box-sizing border-box for all elements for consistent sizing */
+* {
+	box-sizing: border-box;
+}
+
+/* Base font size is 100% and vertical overflow in the HTML */
+html {
+	font-size: 100%;
+	overflow-y: scroll;
+}
+
+/* Minimum height of the HTML and body is set to 100% of viewport height */
+html,
+body {
+	min-height: 100vh;
+}
+
+/* Style the body for centering content with flexbox */
+body {
+	font-family: "Arial", sans-serif;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    filter: invert(100%);
+    background-color: black;
+}
+
+/* Style for the main container */
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	align-content: center;
+	width: 700px;
+}
+
+/* Style for child div elements inside the container */
+.container>div {
+	margin-bottom: 20px;
+}
+
+/* Style for the title */
+.title {
+	display: inline-block;
+	color: #333;
+	font-family: "Lobster", cursive;
+	font-size: 42px;
+	text-align: center;
+	transform: translateY(5px);
+}
+
+/* Pseudo-element style for a line after the title */
+.title::after {
+	content: "";
+	display: block;
+	height: 1rem;
+}
+
+/* Style for the row with flex properties */
+.row {
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	gap: 1.72rem;
+}
+
+/* Style for the ultimate-board container */
+.ultimate-board {
+	position: relative;
+	width: 87.5%;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 0.625rem;
+	background-color: #444;
+	padding: 0.625rem;
+	border-radius: 0.625rem;
+	box-shadow: 0 0 0.3125rem rgba(0, 0, 0, 0.2);
+}
+
+/*Box shadow for the board in dark mode*/
+body.dark-mode .ultimate-board {
+	box-shadow: 0 0 10000rem rgba(0, 0, 0, 1);
+}
+
+/* Style for mini-board inside the ultimate-board */
+.ultimate-board>div.mini-board {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(3, 1fr);
+	gap: 7%;
+	aspect-ratio: 1;
+	background-color: #eee;
+	border-radius: 0.625rem;
+	box-shadow: 0 0 0.1875rem rgba(0, 0, 0, 0.2);
+}
+
+/* Style for cells inside the mini-board */
+.ultimate-board>div.mini-board>div.cell {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Style for individual cells */
+.mini-board .cell {
+	background-color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	aspect-ratio: 1;
+	font-size: 2.1875rem;
+	font-weight: bold;
+	cursor: pointer;
+	border-radius: 0.3125rem;
+	transition: background-color 0.2s, color 0.2s;
+	overflow: hidden;
+}
+
+/* Hover effect for mini-board cells */
+.ultimate-board>div>div:hover {
+	background-color: #ddd;
+}
+
+/* Style for the message displayed on the board */
+#message {
+	grid-column: 2;
+	text-align: center;
+	font-size: 1.25rem;
+	font-weight: bold;
+	color: white;
+}
+
+/* Style for dropdown container */
+.dropdown-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+/* Style for label inside dropdown container */
+.dropdown-container label {
+	font-weight: bold;
+	font-size: 1.125rem;
+}
+
+/* Style for game mode button */
+#game-mode {
+	padding: 0.625rem 1.25rem;
+	font-size: 1rem;
+	border: none;
+	background-color: #f00;
+	color: #fff;
+	border-radius: 0.625rem;
+	cursor: pointer;
+	transition: all 0.2s;
+}
+
+/* Style for options inside game mode dropdown */
+#game-mode option {
+	background-color: #fff;
+	color: #333;
+}
+
+/* Hover effect for game mode button */
+#game-mode:hover {
+	background-color: #f33;
+	transform: scale(1.1);
+}
+
+/* Style for restart and info buttons */
+#restart,
+#info-button, 
+#close-info-button {
+	background-color: #f00;
+	color: #fff;
+	border: none;
+	padding: 0.625rem 1.25rem;
+	font-size: 1rem;
+	border-radius: 0.625rem;
+	cursor: pointer;
+	transition: all 0.2s;
+}
+
+#close-info-button {
+	display: block;
+	margin: 0.625rem auto;
+}
+
+/* Hover effect for buttons */
+#restart:hover,
+#info-button:hover, 
+#close-info-button:hover {
+	background-color: #f33;
+	transform: scale(1.1);
+}
+
+/* Style for info popup heading */
+.info-popup h2 {
+	text-align: center;
+	text-decoration: underline;
+	text-underline-offset: 0.4375rem;
+}
+
+/* Style for the info popup container */
+.info-popup {
+	position: fixed;
+	overflow-y: scroll;
+	text-align: start;
+	height: 100%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #fff;
+	padding: 1.25rem;
+	border-radius: 0.625rem;
+	box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.2);
+}
+
+/* Hover effect for close info button */
+#close-info-button:hover {
+	background-color: #f33;
+}
+
+/* Style for ordered list inside info popup */
+.info-popup ol {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+/* Style for unordered list inside ordered list in info popup */
+.info-popup ol ul {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+/* Style for unordered list inside info popup */
+.info-popup ul {
+	list-style: none;
+}
+
+/* Style custom bullet point */
+.info-popup ul li::before {
+	content: "\2022";
+	color: black;
+	font-weight: bold;
+	display: inline-block; 
+	width: 1em;
+	margin-left: -1em;
+}
+
+.info-popup ul li ol li::before {
+	content: none;
+}
+
+/*Styling for span elements*/
+#red {
+	background-color: #f00;
+	color: white;
+	padding: 2px;
+}
+
+body.dark-mode #red {
+	background-color: cyan;
+}
+
+#yellow {
+	background-color: yellow;
+	padding: 2px;
+}
+
+body.dark-mode #yellow {
+	background-color: blue;
+	color: white;
+}
+
+/* Style for hidden elements */
+.hidden {
+	display: none;
+}
+
+.hide-content {
+	color: transparent;
+	background-color: transparent;
+}
+
+/* Style for winner X */
+.winner-X {
+	position: relative;
+	color: transparent;
+	animation: bounce 0.s ease-in-out;
+}
+
+/* Pseudo-element style for winner X */
+.winner-X::before {
+	content: "X";
+	font-size: 11.25rem;
+	color: black;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+/* Style for winner O */
+.winner-O {
+	position: relative;
+	color: transparent;
+	animation: bounce 0.3s ease-in-out;
+}
+
+/* Pseudo-element style for winner O */
+.winner-O::before {
+	content: "O";
+	font-size: 11.25rem;
+	color: black;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+/* Style for active mini-board */
+.active-mini-board {
+	background-color: #f00 !important;
+}
+
+body.dark-mode .active-mini-board {
+	background-color: cyan !important;
+}
+
+/* Style for disable state with a message */
+.disable::after {
+	content: "waiting for opponent's move...";
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	font-size: 1.5rem;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #ffffff;
+}
+
+/*Styles for last move played*/
+.yellow-background {
+	background-color: yellow !important; 
+}  
+
+body.dark-mode .yellow-background {
+	background-color: blue !important;
+	color: white;
+}
+
+/*Styles for the icons*/
+.icon-buttons {
+  display: flex;
+  gap: 0.625rem;
+  margin-left: auto; 
+}
+
+.icon-buttons button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.icon-buttons i {
+  font-size: 1.5em;
+  color: white;
+}
+
+/* Keyframes for the bounce animation */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Bounce animation applied to cells when marks are placed */
+.mini-board .cell.bounce {
+    animation: bounce 0.1s ease-in-out;
+}
+
+/*Styles for full-screen feature*/
+body, ::backdrop {
+    background: #fff;
+}
+
+body.dark-mode::backdrop {
+    background-color: black;
+}
+
+#fullscreen-button {
+    position: absolute;
+    top:  15px;
+    right:  30px;
+    background: rgba(0,0,0,0.05);
+    border:  0;
+    width:  40px;
+    height:  40px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    transition:  transform .3s;
+    cursor:  pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#fullscreen-button:hover {
+    transform: scale(1.125);
+}
+#fullscreen-button svg:nth-child(2) { 
+    display: none;
+}
+[fullscreen] #fullscreen-button svg:nth-child(1) {
+    display: none;
+}
+[fullscreen] #fullscreen-button svg:nth-child(2) {
+    display: inline-block;
+}
+
+/* Media query for screens up to 480px width */
+@media (max-width: 480px) {
+	html {
+		font-size: 11px;
+	}
+
+	/* Adjusted ultimate-board width for smaller screens */
+	.ultimate-board {
+		width: 100%;
+	}
+
+	/* Adjusted info-popup width and height for smaller screens with scrolling */
+	.info-popup {
+		width: 95%;
+		height: 80%;
+		overflow-y: scroll;
+	}
+}

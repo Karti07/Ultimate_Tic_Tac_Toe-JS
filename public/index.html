@@ -1,0 +1,250 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ultimate Tic-Tac-Toe</title>
+  <link rel="stylesheet" type="text/css" href="styles.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="icon" type="image/x-icon" href="https://t4.ftcdn.net/jpg/06/28/67/69/360_F_628676965_Aofn2wwdejGg6NpLPLblQsZO5V2f7aDO.jpg">
+  <script src="./js/index.js" type="module"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js"
+    integrity="sha512-zoJXRvW2gC8Z0Xo3lBbao5+AS3g6YWr5ztKqaicua11xHo+AvE1b0lT9ODgrHTmNUxeCw0Ry4BGRYZfXu70weg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+</head>
+
+<body>
+  <div class="container">
+    <span class="title">Ultimate Tic - Tac - Toe</span>
+    <div class="row">
+      <div class="dropdown-container">
+        <label for="game-mode">Select Game Mode:</label>
+        <select id="game-mode">
+          <option value="local">Local Multiplayer</option>
+          <option value="online">Online Multiplayer</option>
+          <option value="single">Single Player with AI</option>
+        </select>
+      </div>
+      <button id="restart">Restart Game</button>
+      <button id="info-button">Show Info</button>
+    </div>
+    <div class="ultimate-board">
+      <div class="mini-board" data-index="0">
+        <div class="cell" data-index="0"></div>
+        <div class="cell" data-index="1"></div>
+        <div class="cell" data-index="2"></div>
+        <div class="cell" data-index="3"></div>
+        <div class="cell" data-index="4"></div>
+        <div class="cell" data-index="5"></div>
+        <div class="cell" data-index="6"></div>
+        <div class="cell" data-index="7"></div>
+        <div class="cell" data-index="8"></div>
+      </div>
+      <div class="mini-board" data-index="1">
+        <div class="cell" data-index="9"></div>
+        <div class="cell" data-index="10"></div>
+        <div class="cell" data-index="11"></div>
+        <div class="cell" data-index="12"></div>
+        <div class="cell" data-index="13"></div>
+        <div class="cell" data-index="14"></div>
+        <div class="cell" data-index="15"></div>
+        <div class="cell" data-index="16"></div>
+        <div class="cell" data-index="17"></div>
+      </div>
+      <div class="mini-board" data-index="2">
+        <div class="cell" data-index="18"></div>
+        <div class="cell" data-index="19"></div>
+        <div class="cell" data-index="20"></div>
+        <div class="cell" data-index="21"></div>
+        <div class="cell" data-index="22"></div>
+        <div class="cell" data-index="23"></div>
+        <div class="cell" data-index="24"></div>
+        <div class="cell" data-index="25"></div>
+        <div class="cell" data-index="26"></div>
+      </div>
+      <div class="mini-board" data-index="3">
+        <div class="cell" data-index="27"></div>
+        <div class="cell" data-index="28"></div>
+        <div class="cell" data-index="29"></div>
+        <div class="cell" data-index="30"></div>
+        <div class="cell" data-index="31"></div>
+        <div class="cell" data-index="32"></div>
+        <div class="cell" data-index="33"></div>
+        <div class="cell" data-index="34"></div>
+        <div class="cell" data-index="35"></div>
+      </div>
+      <div class="mini-board" data-index="4">
+        <div class="cell" data-index="36"></div>
+        <div class="cell" data-index="37"></div>
+        <div class="cell" data-index="38"></div>
+        <div class="cell" data-index="39"></div>
+        <div class="cell" data-index="40"></div>
+        <div class="cell" data-index="41"></div>
+        <div class="cell" data-index="42"></div>
+        <div class="cell" data-index="43"></div>
+        <div class="cell" data-index="44"></div>
+      </div>
+      <div class="mini-board" data-index="5">
+        <div class="cell" data-index="45"></div>
+        <div class="cell" data-index="46"></div>
+        <div class="cell" data-index="47"></div>
+        <div class="cell" data-index="48"></div>
+        <div class="cell" data-index="49"></div>
+        <div class="cell" data-index="50"></div>
+        <div class="cell" data-index="51"></div>
+        <div class="cell" data-index="52"></div>
+        <div class="cell" data-index="53"></div>
+      </div>
+      <div class="mini-board" data-index="6">
+        <div class="cell" data-index="54"></div>
+        <div class="cell" data-index="55"></div>
+        <div class="cell" data-index="56"></div>
+        <div class="cell" data-index="57"></div>
+        <div class="cell" data-index="58"></div>
+        <div class="cell" data-index="59"></div>
+        <div class="cell" data-index="60"></div>
+        <div class="cell" data-index="61"></div>
+        <div class="cell" data-index="62"></div>
+      </div>
+      <div class="mini-board" data-index="7">
+        <div class="cell" data-index="63"></div>
+        <div class="cell" data-index="64"></div>
+        <div class="cell" data-index="65"></div>
+        <div class="cell" data-index="66"></div>
+        <div class="cell" data-index="67"></div>
+        <div class="cell" data-index="68"></div>
+        <div class="cell" data-index="69"></div>
+        <div class="cell" data-index="70"></div>
+        <div class="cell" data-index="71"></div>
+      </div>
+      <div class="mini-board" data-index="8">
+        <div class="cell" data-index="72"></div>
+        <div class="cell" data-index="73"></div>
+        <div class="cell" data-index="74"></div>
+        <div class="cell" data-index="75"></div>
+        <div class="cell" data-index="76"></div>
+        <div class="cell" data-index="77"></div>
+        <div class="cell" data-index="78"></div>
+        <div class="cell" data-index="79"></div>
+        <div class="cell" data-index="80"></div>
+      </div>
+      <div id="message"> Player X's turn </div>
+      <div class="icon-buttons">
+        <button id="dark-mode-toggle"><i id="dark-icon" class="fa fa-moon"></i></button>
+        <button id="mute-button"><i id="mute-icon" class="fa fa-volume-up"></i></button>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="info" class="info-popup hidden">
+    <h2>Information for Ultimate Tic-Tac-Toe</h2>
+    <p>
+      Welcome to Ultimate Tic-Tac-Toe! This is a strategic and challenging game that takes the classic Tic-Tac-Toe to a
+      whole new level. Here's some
+      detailed information of the game to help you get started:
+    </p>
+    <ol>
+      <li>
+        <strong>Objective:</strong>
+        <ul>
+          <li>The goal of Ultimate Tic-Tac-Toe is to win the overall game by getting three marks in a row (horizontally,
+            vertically, or diagonally) on the large 3x3 board, just like in regular Tic-Tac-Toe.</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Game Structure:</strong>
+        <ul>
+          <li>The game consists of nine smaller 3x3 Tic-Tac-Toe boards, which are placed within the larger 3x3 board.
+            These smaller boards are referred to as "mini-boards."</li>
+          <li>Each mini-board has nine cells, and the large board contains nine mini-boards.</li>
+          <li>Players take turns placing their marks ('X' or 'O') in the cells of the mini-boards.</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Rules:</strong>
+        <ul>
+          <li>The game starts with 'X' as the first player.</li>
+          <li>Players take turns by clicking on an empty cell within the mini-board. The cell they choose determines the
+            next mini-board their opponent must play in.</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Background Colors:</strong>
+        <ul>
+          <li>A <span id="red">red</span> background indicates the next mini-board the player must play in.</li>
+          <li>A <span id="yellow">yellow</span> background (<strong>applicable for Single Player with AI mode
+              only</strong>) indicates the last move made in the game.</li>
+          <li>A mini-board with an empty background indicates that any cell is available for play.</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Strategy:</strong>
+        <ul>
+          <li>To win the game, you need to think strategically, as your move determines not only your immediate
+            mini-board but also your opponent's future mini-board.</li>
+          <li>Pay attention to the winning conditions in both the mini-boards and the overall game. Try to block your
+            opponent from winning mini-boards while working towards your victory.</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Restarting the Game:</strong>
+        <ul>
+          <li>You can restart the game at any time by clicking the "Restart Game" button.</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Keyboard Shortcuts:</strong>
+        <ul>
+          <li>Press 'R' to restart the game.</li>
+          <li>Press 'D' to toggle dark-mode.</li>
+          <li>Press 'M' to toggle mute-button.</li>
+          <li>Press 'F' to toggle full-screen mode.</li>
+          <li>Press 'Esc' to close this information-popup</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Online Multiplayer Game Mode:</strong>
+        <ul>
+          <li>Player 1 is assigned to whoever enters the Online Multiplayer Game Mode first.</li>
+          <li>Player 1 and 2 <u>MUST</u> be on the same WI-FI Network.</li>
+          <li>To play the Online Multiplayer Game Mode <strong>on the same device:</strong>
+            <ol>
+              <li>The host (who’s running this program), who will be Player 1,
+                should select “Online Multiplayer” from the dropdown menu.</li>
+              <li>The host, who will also be Player 2,
+                should open another tab (in a separate window for convenience)
+                and navigate to “<u>http://localhost:3000</u>”, and select “Online Multiplayer” from the dropdown menu.
+              </li>
+              <li>Player 1 can start by making a move.</li>
+            </ol>
+          </li>
+          <li>To play the Online Multiplayer Game Mode <strong>on different devices:</strong>
+            <ol>
+              <li>The host (who’s running this program), who will be Player 1,
+                should select “Online Multiplayer” from the dropdown menu.</li>
+              <li>Player 2 will need to use Player 1's IPv4 address (as they are the host) followed by <u>:3000</u> (which is
+                the port number) to connect. For example, if Player 1's IPv4 address is <u>192.168.1.5</u>, Player 2 should
+                enter <u>192.168.1.5:3000</u> in their web browser. <i>IPv4 address can be found in “Network and Internet”
+                settings under “Properties”.</i>
+              </li>
+              <li>The game should now open in Player 2’s browser, and they can select “Online Multiplayer” from the dropdown menu.</li>
+              <li>Player 1 (the host) can start by making a move.</li>
+            </ol>
+          </li>
+        </ul>
+      </li>
+    </ol>
+    <p>
+      Now that you know the information and rules, enjoy playing Ultimate Tic-Tac-Toe, and may the best strategist win!
+      Good luck!
+    </p>
+    <button id="close-info-button">Close</button>
+  </div>
+
+</body>
+
+</html>
