@@ -1,5 +1,15 @@
 ﻿# Ultimate_Tic_Tac_Toe - JS
 
+## Table of Contents
+
+- [Ultimate_Tic_Tac_Toe - JS](#ultimate_tic_tac_toe---js)
+  - [Description](#description)
+  - [Features](#features)
+  - [Installation](#installation)
+  - [How to Play](#how-to-play)
+  - [Online Multiplayer Setup](#online-multiplayer-setup)
+  - [Development Stack](#development-stack)
+
 ## Description
 A web-based version of **Ultimate Tic-Tac-Toe**, built with HTML, CSS, JavaScript, Node.js, Express, and Socket.io.
 The game features **local multiplayer**, **online multiplayer**, and **single-player vs AI** modes, along with dark mode, audio, and responsive design.
@@ -57,7 +67,4 @@ The game features **local multiplayer**, **online multiplayer**, and **single-pl
   - [Node.js](https://nodejs.org/en)
   - [Express](https://expressjs.com/)
   - [Socket.io](https://socket.io/)
-
-
-
 
